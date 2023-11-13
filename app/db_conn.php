@@ -4,9 +4,7 @@ $username = "admin";
 $password = "test123#";
 $dbname = "database";
 
-$con = new mysqli($servername, $username, $password, $dbname);
-
-if ($con->connect_error) {
-    die("Connection failed: " . $con->connect_error);
+if($con = mysqli_connect($servername, $username, $password, $dbname)){
+    die("Error de conexion con la db: " . $con->connect_error);
 }
 ?>
