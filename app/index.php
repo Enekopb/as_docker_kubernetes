@@ -43,7 +43,7 @@ $conn->close();
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><input id="inicioSesion" type="submit" name="inicioSesion" value="Saioa hasi" /></td>
+                <td><input id="inicioSesion" type="submit" name="inicioSesion" value="Inicio de sesión" /></td>
                 <td>&nbsp;</td>
             </tr>
         </table>
