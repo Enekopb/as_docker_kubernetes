@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  web:
+    build: ./app
+    links: 
+      - db
+    ports:
+      - "8080:80"
+    volumes:
+     - ./app:/var/www/html/
+
+  db:
+    image: mysql:5.7
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: test
+      MYSQL_DATABASE: database
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro 
+      - ./mysql:/var/lib/mysql
