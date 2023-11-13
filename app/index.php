@@ -10,6 +10,7 @@ $row = mysqli_fetch_array($query);
 
 if(isset($_POST['inicioSesion'])){
   if (($nr == 1)){
+     $_SESSION['usuario'] = $usuario;
      header("Location: http://localhost:8080/menu.php"); // Al menu
      exit;
   }else{
