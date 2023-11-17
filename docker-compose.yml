@@ -27,6 +27,17 @@ services:
       - ./db:/docker-entrypoint-initdb.d
       - ./mysql:/var/lib/mysql
 
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=yourpassword # Cambia 'yourpassword' por una contraseña segura
+    depends_on:
+      - db
+    volumes:
+      - grafana_data:/var/lib/grafana
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     links:
@@ -37,3 +48,6 @@ services:
       MYSQL_USER: admin
       MYSQL_PASSWORD: test123#
       MYSQL_DATABASE: database
+
+volumes:
+  grafana_data:
