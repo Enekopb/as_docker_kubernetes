@@ -1,0 +1,58 @@
+/* Estilos para el cuerpo del documento */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para los encabezados */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #4CAF50;
+}
+
+h2 {
+    text-align: center;
+    color: #4CAF50;
+}
+
+/* Estilos para el botón */
+input[type="button"] {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="button"]:hover {
+    background-color: #4CAF50;
+}
+
+/* Estilos para la tabla */
+#datosTabla {
+    width: 90%;
+    margin: 10px auto;
+    border-collapse: collapse;
+}
+
+#datosTabla th,
+#datosTabla td {
+    padding: 8px;
+    border: 1px solid #ccc;
+    text-align: center;
+    background-color: #ffffff;
+    color: black;
+}
+
+#datosTabla th {
+    background-color: #ffffff;
+    color: black;
+}
+

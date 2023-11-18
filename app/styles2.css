@@ -1,0 +1,66 @@
+/* Estilos para el cuerpo del documento */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333; /* Color de fondo */
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para el encabezado h1 */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #4CAF50; /* Color del texto */
+}
+
+/* Estilos para la lista desordenada (ul) */
+ul {
+    list-style-type: none;
+    margin: 30px auto; /* Margen superior e inferior */
+    padding: 0;
+    text-align: center;
+}
+
+/* Estilos para los elementos de la lista */
+ul li {
+    display: inline-block;
+    margin: 10px;
+}
+
+/* Estilos para los enlaces */
+ul li a {
+    text-decoration: none;
+    color: #ffffff; /* Color del enlace */
+    padding: 8px 16px;
+    border: 1px solid #4CAF50; /* Borde alrededor del enlace */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease;
+}
+
+/* Estilos para el botón */
+input[type="button"] {
+    padding: 8px 16px;
+    border: none;
+    background-color: #4CAF50; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilos para el botón al pasar el cursor */
+input[type="button"]:hover {
+    background-color: #4CAF50;
+}
+
+/* Estilos para la tabla */
+table {
+    margin: 20px auto;
+}
+
+/* Estilos para los elementos de la tabla */
+td {
+    padding: 5px;
+}
+
+

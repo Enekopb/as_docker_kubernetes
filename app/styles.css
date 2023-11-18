@@ -1,0 +1,56 @@
+/* Estilos para el cuerpo del documento */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para el encabezado h1 */
+.encabezado {
+    text-align: center;
+    color: #4CAF50; /* Color verde */
+    margin-top: 50px; /* Espacio superior */
+}
+
+/* Estilos para el contenedor principal */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Estilos para el formulario */
+.inputak {
+    margin-top: 20px;
+}
+
+/* Estilos para los inputs */
+.inputak input[type="text"],
+.inputak input[type="password"],
+.inputak input[type="submit"],
+.inputak input[type="button"] {
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+/* Estilos para el botón de registro */
+#registro {
+    background-color: #008000;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#registro:hover {
+    background-color: #006400;
+}
+
+td {
+	color: white;
+}
