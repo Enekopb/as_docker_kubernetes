@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: web
+  name: web-deployment
+spec:
+  replicas: 1  
+  selector:
+    matchLabels:
+      service: web
+  template:
+    metadata:
+      labels:
+        service: web
+    spec:
+      containers:
+      - name: web-container
+        image: enekoperez/mi-proyecto:web-v1.0  
+        ports:
+        - containerPort: 80
