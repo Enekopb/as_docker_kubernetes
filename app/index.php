@@ -1,15 +1,14 @@
 <?php
-require 'db_conn.php';
+require 'dbkon.php';
+session_start();
 $usuario = $_POST['usuario'];
 $contra = $_POST['contra'];
 
-$sql ="SELECT * FROM usuarios WHERE 'usuario' = '$usuario' and 'contra' = '$contra'";
-$query = mysqli_query($con,$sql);
-$nr = mysqli_num_rows($query); 
-$row = mysqli_fetch_array($query);
-
 if(isset($_POST['inicioSesion'])){
-  if (($nr == 1)){
+
+$sql ="SELECT * FROM usuarios WHERE username = '$usuario' and password = '$contra'";
+$result = $con->query($sql);
+if ($result->num_rows > 0){
      $_SESSION['usuario'] = $usuario;
      header("Location: http://localhost:8080/menu.php"); // Al menu
      exit;
@@ -18,23 +17,24 @@ if(isset($_POST['inicioSesion'])){
   }
 }
 
-$conn->close();
+$con->close();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Mendi - Login</title>
+    <title>Login</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-
+<body>
+	<h1 class="encabezado">Inicio</h1>
+</body>
 <div class="content">
-<body background="fondo.jpg">
     <form name="loginak" class="inputak" method="POST" action="index.php"> 
         <table>
             <tr>
-                <td>&nbsp;</td>
-                <td><input id="usuario" type="text" name="usuario" placeholder="Usuario Ad: eneko" required></td>
+		<td>&nbsp;</td>	       
+	<td><input id="usuario" type="text" name="usuario" placeholder="Usuario Ad: eneko" required></td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
@@ -53,9 +53,6 @@ $conn->close();
     <table class="inputak">
         <tr>
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
             <td>¿No te has registrado todavía?</td>
             <td>&nbsp;</td>
             <tr>
@@ -64,7 +61,6 @@ $conn->close();
                 <td>&nbsp;</td>
             </tr>
         </tr>
-    </table>
-</body>    
+    </table>   
 </div>
 </html>
