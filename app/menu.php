@@ -1,8 +1,7 @@
 <?php
 require 'dbkon.php';
 session_start();
-
-
+$grafana = "//".$_SERVER['SERVER_NAME'].":3000";
 ?>
 
 <!DOCTYPE html>
@@ -14,9 +13,9 @@ session_start();
 <body>
     <h1>Bienvenido, <?php echo $_SESSION['usuario']; ?>!</h1>
     <ul>
-	<li><a href="anadir_ruta.php">Añadir nueva ruta</a></li>
-        <li><a href="ver_rutas_propias.php">Ver mis rutas</a></li>
-        <li><a href="http://localhost:3000">Analisis de datos</a></li>
+	<li><a onclick="location.href='anadir_ruta.php'">Añadir nueva ruta</a></li>
+        <li><a onclick="location.href='ver_rutas_propias.php'">Ver mis rutas</a></li>
+        <li><a href=http:<?php echo $grafana; ?>>Analisis de datos</a></li>
     </ul>
      <table>
             <tr>
