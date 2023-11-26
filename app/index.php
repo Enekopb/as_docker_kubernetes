@@ -10,7 +10,7 @@ $sql ="SELECT * FROM usuarios WHERE username = '$usuario' and password = '$contr
 $result = $con->query($sql);
 if ($result->num_rows > 0){
      $_SESSION['usuario'] = $usuario;
-     header("Location: http://localhost:8080/menu.php"); // Al menu
+     header("Location:menu.php"); // Al menu
      exit;
   }else{
     echo "ERROR: No existe ese usuario o la contraseña es incorrecta.";
