@@ -12,7 +12,7 @@ if(isset($_POST['enviar'])){
 
 	$sql ="INSERT INTO rutas (usuario, nombre_ruta, kilometros,duracion,desnivel) VALUES ('$usuario','$ruta','$km', '$duracion', '$desnivel')";
 		if ($con->query($sql) === TRUE) {
-	        	header("Location: http://localhost:8080/menu.php"); // Al menu
+	        	header("Location:menu.php"); // Al menu
 			echo "Datos insertados correctamente";
     		} else {
         		echo "Error al insertar datos: " . $con->error;
