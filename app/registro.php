@@ -11,7 +11,7 @@
 		$sql ="INSERT INTO usuarios (username, email, password) VALUES ('$nombre','$email','$contra')";
 		if ($con->query($sql) === TRUE) {
 			$_SESSION['usuario'] = $nombre;
-	        	header("Location: http://localhost:8080/menu.php"); // Al menu
+	        	header("Location:menu.php"); // Al menu
 			echo "Datos insertados correctamente";
     		} else {
         		echo "Error al insertar datos: " . $con->error;
