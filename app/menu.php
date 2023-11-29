@@ -13,6 +13,7 @@ $grafana = "//".$_SERVER['SERVER_NAME'].":3000";
 <body>
     <h1>Bienvenido, <?php echo $_SESSION['usuario']; ?>!</h1>
     <ul>
+	<li><a onclick="location.href='tiempo.php'">Tiempo</a></li>
 	<li><a onclick="location.href='anadir_ruta.php'">Añadir nueva ruta</a></li>
         <li><a onclick="location.href='ver_rutas_propias.php'">Ver mis rutas</a></li>
         <li><a href=http:<?php echo $grafana; ?>>Analisis de datos</a></li>
