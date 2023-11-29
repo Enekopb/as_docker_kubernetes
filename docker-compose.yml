@@ -11,10 +11,12 @@ services:
     ports:
       - "8080:80"
     volumes:
-     - ./app:/var/www/html/
+     - shared_volume:/var/www/html/
 
   db:
-    image: mariadb:10.8.2
+    build:
+      context: .
+      dockerfile: Dockerfile-db
     restart: always
     ports:
       - "3306:3306"
@@ -24,7 +26,6 @@ services:
       MYSQL_PASSWORD: test123#
       MYSQL_DATABASE: database
     volumes:
-      - ./db:/docker-entrypoint-initdb.d
       - ./mysql:/var/lib/mysql
 
   grafana:
@@ -49,5 +50,14 @@ services:
       MYSQL_PASSWORD: test123#
       MYSQL_DATABASE: database
 
+  python:
+    build:
+      context: .
+      dockerfile: DockerfilePython
+    volumes:
+      - shared_volume:/usr/src/app
+
 volumes:
   grafana_data:
+  shared_volume:
+                                       
