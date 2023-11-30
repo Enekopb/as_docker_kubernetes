@@ -1,23 +1,7 @@
 <?php
-$file = fopen("datos", "r");
-
-if ($file) {
-    $wordsList = [];
-
-    while (($line = fgets($file)) !== false) {
-        $words = explode(" ", $line);
-        foreach ($words as $word) {
-            // Elimina los espacios en blanco y guarda la palabra
-            $cleanedWord = trim($word);
-            if (!empty($cleanedWord)) {
-                $wordsList[] = $cleanedWord;
-            }
-        }
-    }
-    fclose($file);
-} else {
-    echo "No se pudo abrir el archivo.";
-}
+require 'dbkon.php';
+session_start();
+$usuario = $_SESSION['usuario'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -34,12 +18,27 @@ if ($file) {
                         <th>Temperatura</th>
                         <th>Humedad</th>
                 </thead>
+<?php
+        $db = new mysqli("db", "admin", "test123#", "database");
+        $sql = "SELECT * FROM tiempo";
+        $stmt = $db->prepare($sql);
+        if ($stmt === false) {
+                die("Error al preparar la consulta: " . $ddbb->error);
+        }
+        $stmt->execute();
+        $resultSet = $stmt->get_result();
+        $datos = $resultSet->fetch_all();
+        foreach($datos as $dato) {
+?>
            <tbody>
                 <tr>
-<?php foreach($wordsList as $word) { ?>
-                <td><?php echo $word?> </td>
-<?php } ?>
+                    <td><?php echo $dato[0]?></td>
+                    <td><?php echo $dato[1]?></td>
+                    <td><?php echo $dato[2]?></td>
+                    <td><?php echo $dato[3]?></td>
                 </tr>
+
+                <?php } ?>
         </tbody>
         </table>
 </div>
