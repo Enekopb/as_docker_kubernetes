@@ -1,6 +1,8 @@
 import time
+import mysql.connector
 import requests
 
+connection = mysql.connector.connect(host="db", user="root", password="root123#", database="database")
 while(True):
     apiKey = '860c319a8d435bacb93e96e41ef9870c'
     ciudad = 'Bilbao'
@@ -15,11 +17,18 @@ while(True):
         print(data)
         lista = []
         lista.append(ciudad)
-        lista.append(data['weather'][0]['main'])
-        lista.append(str(data['main']['temp'])+'ºF')
-        lista.append(str(data['main']['humidity'])+'%')
-        with open('datos', 'w') as archivo:
-            for valor in lista:
-                archivo.write(str(valor)+'\n')
-        print(lista)
+        tiempo = str(data['weather'][0]['main'])
+        temperatura = str(data['main']['temp'])+'ºF'
+        humedad = str(data['main']['humidity'])+'%'
+        # La consulta a mysql
+        print(connection)
+        cursor = connection.cursor()
+        cursor.execute("SELECT * FROM tiempo")
+        resultado = cursor.fetchone()
+        if resultado:
+            cursor.execute("UPDATE tiempo SET ciudad = %s, tiempo = %s, temperatura = %s, humedad = %s", (ciudad, tiempo, temperatura, humedad))
+            connection.commit()
+        else:
+            cursor.execute("INSERT INTO tiempo (ciudad, tiempo, temperatura, humedad)VALUES (%s, %s, %s, %s)", (ciudad, tiempo, temperatura, humedad))
+            connection.commit()
         time.sleep(60)
