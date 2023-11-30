@@ -15,3 +15,11 @@ CREATE TABLE if not exists rutas (
     desnivel FLOAT,
     FOREIGN KEY (usuario) REFERENCES usuarios(username)
 );
+
+CREATE TABLE if not exists tiempo (
+    ciudad VARCHAR(30) PRIMARY KEY,
+    tiempo VARCHAR(50) NOT NULL,
+    temperatura VARCHAR(10) NOT NULL,
+    humedad VARCHAR(10) NOT NULL,
+    UNIQUE KEY (ciudad)
+);
