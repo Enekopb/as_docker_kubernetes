@@ -1,11 +1,7 @@
-Proyecto de administración de sistemas
-
-1. Imagen servidor web: Apache
-
-2. Imagen servidor BBDD: MySQL
-
-3. Imagen libre: Python
-
-Imagenes adicionales: Grafana y phpmyadmin
-
-Clonar el repositorio: git clone https://github.com/Enekopb/as_docker_kubernetes.git
+Para ejecutar el programa:
+Antes de nada situarse en el directorio donde esta el archivo docker-compose.yml
+Docker: sudo docker-compose up      
+Minikube: Minikube start 
+          //Esto creara todos los deployments, service y pvc de golpe. El pod de python dara error hasta que el de db se inicie. Se puede hacer de archivo en archivo haciendo kubectl apply -f cadaArchivo.yml
+          kubectl create -f kubernetes/      
+          minikube service apache-service
