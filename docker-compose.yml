@@ -3,7 +3,9 @@ version: '3'
 services:
   web:
     image: web
-    build: .
+    build: 
+      context: .
+      dockerfile: Dockerfile
     environment:
      - ALLOW_OVERRIDE=true
     links:
