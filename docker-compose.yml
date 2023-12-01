@@ -2,10 +2,7 @@ version: '3'
 
 services:
   web:
-    image: web
-    build: 
-      context: .
-      dockerfile: Dockerfile
+    image: enekoperez/mi-proyecto:web-v1.0
     environment:
      - ALLOW_OVERRIDE=true
     links:
@@ -14,9 +11,7 @@ services:
       - "8080:80"
 
   db:
-    build:
-      context: .
-      dockerfile: Dockerfile-db
+    image: enekoperez/mi-proyecto:db-v1.0
     restart: always
     ports:
       - "3306:3306"
@@ -33,7 +28,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - GF_SECURITY_ADMIN_PASSWORD=test123# 
+      - GF_SECURITY_ADMIN_PASSWORD=test123#
     depends_on:
       - db
     volumes:
@@ -51,12 +46,9 @@ services:
       MYSQL_DATABASE: database
 
   python:
-    build:
-      context: .
-      dockerfile: DockerfilePython
+    image: enekoperez/mi-proyecto:python-v1.0
     depends_on:
       - db
 
 volumes:
   grafana_data:
-                                       
