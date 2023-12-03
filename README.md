@@ -1,7 +1,7 @@
 Para ejecutar el programa:
 
 
-Antes de nada situarse en el directorio donde esta el archivo docker-compose.yml. Los puerto 8080, 3306, 3000 y 19999 no deberían estar ocupados.
+Antes de nada situarse en el directorio donde esta el archivo docker-compose.yml. Los puerto 8080, 3306, 3000 y 19999 no deberían estar ocupados. Y a la hora de buscaren el navegador hacerlo con http y no htpps.
 
 Docker: sudo docker-compose up      
 
